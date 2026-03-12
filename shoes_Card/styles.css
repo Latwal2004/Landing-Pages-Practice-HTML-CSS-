@@ -129,3 +129,81 @@ button:last-child{
     background: #ffffff;
     border: 1px solid #00000099; 
 }
+
+
+/* tablet screen */
+@media (max-width: 992px){
+
+main{
+    flex-direction: column;
+    padding: 20px;
+}
+
+.images_section{
+    flex-direction: column;
+}
+
+aside{
+    flex-direction: row;
+    overflow-x: auto;
+}
+
+aside img{
+    width: 80px;
+}
+
+.image_container img{
+    width: 100%;
+}
+
+.varriant{
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    gap: 10px;
+}
+
+.varriant img{
+    width: 100%;
+}
+
+}
+
+/* mobile screen */
+
+@media (max-width: 600px){
+
+.content_header h1{
+    font-size: 26px;
+}
+
+.content_header p{
+    font-size: 18px;
+}
+
+.content_header h4{
+    font-size: 16px;
+}
+
+.price_section h2{
+    font-size: 20px;
+}
+
+.sizes{
+    grid-template-columns: repeat(2,1fr);
+}
+
+.size{
+    font-size: 16px;
+    padding: 10px;
+}
+
+button{
+    padding: 16px;
+    font-size: 16px;
+}
+
+aside img{
+    width: 70px;
+}
+
+}
