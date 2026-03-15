@@ -1,0 +1,65 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100..900;1,100..900&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  background-color: #0c0d0f;
+  color: #fff;
+}
+
+.hero{
+  width: 100%;
+}
+.hero-bg{
+  width: 100%;
+  object-fit: cover;
+}
+
+.hero-content h1{
+  font-size: 72px;
+  position: relative;
+  top: -220px;
+  text-align: center;
+  margin-bottom: -120px;
+}
+
+.container{
+  max-width: 900px;
+  margin: 0 auto;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.arrow{
+  position: relative;
+  left: 25%;
+  width:10px ;
+}
+.arrow.reverse{
+left: 75%;
+}
+
+.service{
+  display: flex;
+}
+.service-text{
+  padding: 32px;
+}
+.service-img{
+  max-width:450px ;
+}
+.service h2{
+  font-size: 32px;
+  padding-bottom: 16px;
+
+}
+.service p{
+  font-size: 16px;
+}
+
