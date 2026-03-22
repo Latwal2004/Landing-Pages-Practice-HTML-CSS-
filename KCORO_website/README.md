@@ -14,7 +14,7 @@
 
 ## 📸 Preview
 
-![KCORO Hero Section](./IMG/desktop.png)
+![KCORO Hero Section](./IMG/kcoro_preview.png)
 
 ---
 
