@@ -265,63 +265,106 @@ margin-bottom: 48px;
     margin: 0 auto;
     text-transform: uppercase;
 }
-footer{
-display: flex;
-margin-top: 120px;
-margin-bottom: 48px;
-font-size: 16px;
-justify-content: space-between;
+
+/* ========================= */
+/* FOOTER UI UPGRADE (CSS ONLY) */
+/* ========================= */
+
+footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 50px;
+  margin-top: 120px;
+  padding: 60px 40px;
+  border-radius: 20px;
+
+  background: linear-gradient(135deg, #1a003d, #0d001f);
+  border: 1px solid rgba(255,255,255,0.08);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+  position: relative;
 }
-.logo{
-font-weight: bold;
+footer::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 2px;
+  width: 100%;
+  background: linear-gradient(to right, transparent, #9f3ee7, transparent);
 }
-.links_container{
-display: flex;
-gap: 80px;
+/* Make links container horizontal */
+.links_container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 60px;
 }
 
-.links ul{
-margin-top: 16px;
-list-style: none;
-display: flex;
-gap: 8px;
-flex-direction: column;
+/* Each column */
+.links {
+  min-width: 120px;
+}
+.links h4 {
+  font-size: 13px;
+  letter-spacing: 2px;
+  color: white;
+  margin-bottom: 12px;
+  text-transform: uppercase;
+
 }
 .links li{
-    font-size: 16px;
+    list-style: none;
 }
-.links h4{
-text-transform: uppercase;
-}
-.input_container{
-margin-top: 20px;
-width: 345px;
-background: #13134d;
-position: relative;
-border-radius: 9999px;
-}
-input{
-    border-radius: 9999px;
-    padding: 0 16px;
-    height: 50px;
-    background: #13134d;
-    width: 100%;
-    border: none;
-}
-.news_letter button{
-position: absolute;
-right: 4px;
-border-radius: 9999px;
-padding: 0;
-margin-top: 2px;
-background: var(--primary-color);
-border: none;
-color: white;
-width: 115px;
-height: 44px !important;
+.links a {
+  opacity: 0.6;
+  font-size: 15px;
+  transition: all 0.3s ease;
+  display: inline-block;
+  color: aliceblue;
 }
 
+/* Smooth hover */
+.links a:hover {
+  opacity: 1;
+  transform: translateX(6px);
+}
+.input_container {
+  margin-top: 15px;
+  width: 100%;
+  max-width: 300px;
+  background: rgba(255,255,255,0.05);
+  border-radius: 999px;
+  padding: 5px;
+  display: flex;
+  align-items: center;
+}
 
+input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: white;
+  padding-left: 12px;
+}
+
+/* Button redesign */
+.news_letter button {
+  position: static;
+  height: 38px;
+  padding: 0 18px;
+  color: white;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #9f3ee7, #a445e8);
+  transition: 0.3s;
+}
+
+.news_letter button:hover {
+  transform: scale(1.08);
+  box-shadow: 0 0 15px rgba(159, 62, 231, 0.6);
+}
+ 
 /* ========================= */
 /* IMAGE ANIMATIONS */
 /* ========================= */
@@ -488,21 +531,54 @@ button:hover::before {
   .testimonial_card {
     width: 45%;
   }
+}
 
-  footer {
-    flex-direction: column;
-    gap: 40px;
+/* ========================= */
+/* BRAND LOGO HOVER EFFECT */
+/* ========================= */
+
+.brand_logos img {
+  transition: all 0.4s ease;
+  opacity: 0.7;
+  filter: grayscale(100%);
+  cursor: pointer;
+}
+
+/* Hover effect */
+.brand_logos img:hover {
+  transform: scale(1.15);
+  opacity: 1;
+  filter: grayscale(0%);
+}
+@keyframes brandFade {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
   }
-
-  .links_container {
-    justify-content: space-between;
-  }
-
-  .input_container {
-    width: 100%;
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
+.brand_logos img {
+  animation: brandFade 0.8s ease forwards;
+}
+
+/* Stagger effect */
+.brand_logos img:nth-child(1) { animation-delay: 0.2s; }
+.brand_logos img:nth-child(2) { animation-delay: 0.4s; }
+.brand_logos img:nth-child(3) { animation-delay: 0.6s; }
+.brand_logos img:nth-child(4) { animation-delay: 0.8s; }
+@keyframes floatBrand {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-6px); }
+  100% { transform: translateY(0px); }
+}
+
+.brand_logos img {
+  animation: floatBrand 4s ease-in-out infinite;
+}
 
 /* ========================= */
 /* MOBILE (<= 768px) */
@@ -565,7 +641,7 @@ button:hover::before {
   .links_container {
     flex-direction: column;
     align-items: center;
-    gap: 30px;
+    gap: 25px;
   }
 
   .news_letter {
