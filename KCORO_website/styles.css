@@ -15,6 +15,7 @@ html, body{
 font-family: var(--font-body);
 background-color: var(--bg-color);
 color: var(--foreground-color);
+
 }
 h1{
 font-size: 87px;
@@ -257,4 +258,72 @@ margin-bottom: 48px;
     margin: 0 auto;
     text-transform: uppercase;
 }
+footer{
+display: flex;
+margin-top: 120px;
+margin-bottom: 48px;
+font-size: 16px;
+justify-content: space-between;
+}
+.logo{
+font-weight: bold;
+}
+.links_container{
+display: flex;
+gap: 80px;
+}
 
+.links ul{
+margin-top: 16px;
+list-style: none;
+display: flex;
+gap: 8px;
+flex-direction: column;
+}
+.links li{
+    font-size: 16px;
+}
+.links h4{
+text-transform: uppercase;
+}
+.input_container{
+margin-top: 20px;
+width: 345px;
+background: #13134d;
+position: relative;
+border-radius: 9999px;
+}
+input{
+    border-radius: 9999px;
+    padding: 0 16px;
+    height: 50px;
+    background: #13134d;
+    width: 100%;
+    border: none;
+}
+.news_letter button{
+position: absolute;
+right: 4px;
+border-radius: 9999px;
+padding: 0;
+margin-top: 2px;
+background: var(--primary-color);
+border: none;
+color: white;
+width: 115px;
+height: 44px !important;
+}
+
+.wrapper {
+  overflow: hidden;
+  z-index: 10;
+  position: relative;
+  width: 100%;
+}
+
+.grad_bg{
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 2;
+}
