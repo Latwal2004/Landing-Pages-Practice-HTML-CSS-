@@ -206,10 +206,6 @@ margin-top: 174px;
 .testimonial_section h2{
 margin-top: 16px;
 }
-
-.testimonial_section h3{
-    
-}
 .testimonials{
 margin-top: 120px;
 margin-bottom: 110px;
@@ -330,12 +326,15 @@ footer::before {
   transform: translateX(6px);
 }
 .input_container {
+     width: 100%;
+    max-width: 280px;
+    min-width: 0;
   margin-top: 15px;
-  width: 100%;
   max-width: 300px;
   background: rgba(255,255,255,0.05);
   border-radius: 999px;
   padding: 5px;
+  overflow: hidden;
   display: flex;
   align-items: center;
 }
@@ -347,6 +346,12 @@ input {
   outline: none;
   color: white;
   padding-left: 12px;
+      min-width: 0;
+
+}
+.news_letter {
+    min-width: 0;
+    flex-shrink: 1;
 }
 
 /* Button redesign */
@@ -355,6 +360,7 @@ input {
   height: 38px;
   padding: 0 18px;
   color: white;
+ flex-shrink: 0;
   border-radius: 999px;
   background: linear-gradient(90deg, #9f3ee7, #a445e8);
   transition: 0.3s;
@@ -579,76 +585,283 @@ button:hover::before {
 .brand_logos img {
   animation: floatBrand 4s ease-in-out infinite;
 }
+.nav-toggle {
+    display: none;
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}
 
-/* ========================= */
-/* MOBILE (<= 768px) */
-/* ========================= */
+
+/* hemburger */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 6px;
+    cursor: pointer;
+    padding: 6px;
+    z-index: 200;
+    position: relative;
+}
+.hamburger span {
+    display: block;
+    width: 26px;
+    height: 2px;
+    background: white;
+    border-radius: 2px;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    transform-origin: center;
+}
+
+
+
+/* ============================================================
+   RESPONSIVE — TABLET  (≤ 1024px)
+   ============================================================ */
+@media (max-width: 1024px) {
+    .container {
+        padding: 0 40px;
+    }
+    h1 { font-size: 64px; }
+    h2 { font-size: 44px; }
+ 
+    nav ul { gap: 40px; }
+ 
+    .hero_section { gap: 32px; }
+ 
+    .brand_logos { padding: 19px 40px; }
+ 
+    .testimonials { gap: 14px; }
+ 
+    footer { padding: 48px 36px; gap: 32px; }
+    .links_container { gap: 40px; }
+    .input_container { width: 240px; }
+}
+ 
+ 
+/* ============================================================
+   RESPONSIVE — TABLET  (≤ 768px)
+   ============================================================ */
 @media (max-width: 768px) {
-
-  h1 {
-    font-size: 40px;
-  }
-
-  h2 {
-    font-size: 28px;
-  }
-
-  p {
-    font-size: 16px;
-  }
-
-  nav {
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
-  }
-
-  nav ul {
-    flex-direction: column;
-    gap: 12px;
-  }
-
-  .hero_button {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .hero_button button {
-    width: 100%;
-    max-width: 250px;
-  }
-
-  .brand_logos {
-    flex-wrap: wrap;
-    gap: 20px;
-    height: auto;
-    padding: 20px;
-  }
-
-  .testimonial_card {
-    width: 100%;
-  }
-
-  .ready_section {
-    height: auto;
-    padding: 40px 20px;
-  }
-
-  footer {
-    text-align: center;
-  }
-
-  .links_container {
-    flex-direction: column;
-    align-items: center;
-    gap: 25px;
-  }
-
-  .news_letter {
-    width: 100%;
-  }
-
-  .input_container {
-    width: 100%;
-  }
+    .container {
+        padding: 0 28px;
+    }
+ 
+    /* Typography */
+    h1 { font-size: 52px; }
+    h2 { font-size: 36px; }
+    h3 { font-size: 17px; }
+    p  { font-size: 16px; line-height: 26px; }
+    button { font-size: 17px; }
+ 
+    /* Nav */
+    nav {
+        margin-top: 40px;
+        margin-bottom: 32px;
+    }
+    nav ul { gap: 28px; }
+ 
+    /* Hero stacks */
+    .hero_section {
+        flex-direction: column;
+        gap: 40px;
+        text-align: center;
+    }
+    .hero_content { flex: unset; width: 100%; }
+    .hero_button  { justify-content: center; }
+    .hero_button button { width: 200px; }
+    .hero_img {
+        flex: unset;
+        width: 100%;
+        max-width: 380px;
+        margin: 0 auto;
+    }
+ 
+    /* Brand */
+    .brand_section { margin-top: 80px; }
+    .brand_logos {
+        height: auto;
+        padding: 20px 28px;
+        gap: 20px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .brand_logos img { height: 32px !important; }
+    .brand_logos img:nth-child(1) { height: 52px !important; }
+ 
+    /* Features */
+    .feature_section {
+        flex-direction: column;
+        gap: 32px;
+        margin-bottom: 48px;
+        text-align: center;
+    }
+    .feature_section:nth-of-type(3) {
+        flex-direction: column-reverse;
+    }
+    .feature_image {
+        flex: unset;
+        width: 100%;
+        max-width: 380px;
+        margin: 0 auto;
+    }
+    .feature_content {
+        flex: unset;
+        width: 100%;
+    }
+    .feature_content button { margin: 0 auto; display: block; }
+ 
+    /* Testimonials */
+    .testimonial_section { margin-top: 100px; }
+    .testimonials {
+        flex-direction: column;
+        align-items: center;
+        margin-top: 80px;
+        margin-bottom: 80px;
+        gap: 24px;
+    }
+    .testimonial_card {
+        width: 100%;
+        max-width: 480px;
+    }
+ 
+    /* Ready */
+    .ready_section {
+        height: auto;
+        padding: 60px 32px;
+        border-radius: 16px;
+    }
+ 
+    /* Footer */
+    footer {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 40px;
+        margin-top: 80px;
+        padding: 44px 32px;
+    }
+    .links_container {
+        flex-wrap: wrap;
+        gap: 32px;
+        width: 100%;
+    }
+    .input_container { width: 100%; max-width: 320px; }
+}
+ 
+ 
+/* ============================================================
+   RESPONSIVE — MOBILE  (≤ 480px)
+   ============================================================ */
+@media (max-width: 480px) {
+    .container { padding: 0 20px; }
+ 
+    /* Typography */
+    h1 { font-size: 38px; }
+    h2 { font-size: 28px; }
+    h3 { font-size: 14px; letter-spacing: 1.5px; }
+    p  { font-size: 15px; line-height: 24px; }
+    li { font-size: 14px; }
+    button { font-size: 16px; padding: 18px 22px; }
+ 
+    /* Nav — hide links, show hamburger */
+    nav {
+        margin-top: 24px;
+        margin-bottom: 24px;
+        position: relative;
+    }
+    .hamburger { display: flex; }
+    .nav-toggle { display: block; }
+ 
+    nav ul {
+        display: none;
+        flex-direction: column;
+        gap: 18px;
+        position: absolute;
+        top: calc(100% + 12px);
+        right: 0;
+        background: rgba(20, 0, 70, 0.97);
+        backdrop-filter: blur(12px);
+        padding: 28px 32px;
+        border-radius: 16px;
+        z-index: 999;
+        box-shadow: 0 20px 60px rgba(0,0,0,0.55);
+        min-width: 200px;
+        border: 1px solid rgba(159,62,231,0.25);
+    }
+    nav ul li a { font-size: 16px; }
+ 
+    /* Toggle open */
+    .nav-toggle:checked ~ ul { display: flex; }
+ 
+    /* Animate hamburger → X */
+    .nav-toggle:checked ~ .hamburger span:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+    .nav-toggle:checked ~ .hamburger span:nth-child(2) {
+        opacity: 0;
+        transform: scaleX(0);
+    }
+    .nav-toggle:checked ~ .hamburger span:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+ 
+    /* Hero */
+    .hero_content p { margin-top: 14px; }
+    .hero_button {
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+    }
+    .hero_button button { width: 100%; max-width: 280px; }
+    .hero_img { max-width: 100%; }
+ 
+    /* Brand */
+    .brand_section { margin-top: 48px; }
+    .brand_logos {
+        padding: 18px 16px;
+        gap: 16px;
+        justify-content: center;
+    }
+    .brand_logos img        { height: 22px !important; }
+    .brand_logos img:nth-child(1) { height: 38px !important; }
+ 
+    /* Features */
+    .feature_section { gap: 24px; margin-bottom: 36px; }
+    .feature_section:nth-of-type(3) { flex-direction: column; }
+    .feature_image { max-width: 100%; }
+ 
+    /* Testimonials */
+    .testimonial_section { margin-top: 60px; }
+    .testimonials { margin-top: 70px; margin-bottom: 60px; gap: 20px; }
+    .testimonial_card {
+        max-width: 100%;
+        padding: 80px 18px 36px;
+    }
+    .testimonial_image { width: 100px; top: -44px; }
+    .testimonial_image img { width: 100px; height: 100px; }
+ 
+    /* Ready */
+    .ready_section { padding: 48px 20px; border-radius: 14px; }
+    .ready_section h2 { font-size: 26px; margin-bottom: 32px; }
+    .tag { font-size: 13px; }
+    .black_btn { font-size: 15px; padding: 16px 20px; max-width: 220px; }
+ 
+    /* Footer */
+    footer {
+        flex-direction: column;
+        margin-top: 56px;
+        margin-bottom: 32px;
+        padding: 36px 20px;
+        gap: 32px;
+        border-radius: 16px;
+    }
+    .links_container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 28px;
+        width: 100%;
+    }
+    .news_letter { width: 100%; }
+    .input_container { width: 100%; max-width: 100%; }
 }
