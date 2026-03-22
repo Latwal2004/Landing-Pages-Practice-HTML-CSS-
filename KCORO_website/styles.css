@@ -15,7 +15,6 @@ html, body{
 font-family: var(--font-body);
 background-color: var(--bg-color);
 color: var(--foreground-color);
-
 }
 h1{
 font-size: 87px;
@@ -58,16 +57,6 @@ li{
     color: white;
     font-family: var(--font-body);
 }
-a{
-    text-decoration: none;
-    color: white;
-    cursor: pointer;
-}
-a:hover{
-        text-decoration: underline;
-        transition: 1s ease-in-out;
-
-}
 
 button{
     padding: 22px 32px;
@@ -93,7 +82,7 @@ border: 2px solid white;
 
 /* navbar */
 .container{
-    max-width: 1065px;
+    max-width: 1067px;
     margin: 0 auto;
 }
 nav{
@@ -107,8 +96,26 @@ nav ul {
     list-style-type: none;
     gap: 76px;
 }
-nav a{
-    text-transform: uppercase;
+nav a {
+  text-decoration: none;
+  color: white;
+  position: relative;
+  text-transform: uppercase;
+}
+/* animated underline */
+a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0%;
+  height: 2px;
+  background: white;
+  transition: width 0.4s ease;
+}
+
+a:hover::after {
+  width: 100%;
 }
 /* hero section */
 
@@ -314,16 +321,258 @@ width: 115px;
 height: 44px !important;
 }
 
-.wrapper {
-  overflow: hidden;
-  z-index: 10;
-  position: relative;
-  width: 100%;
+
+/* ========================= */
+/* IMAGE ANIMATIONS */
+/* ========================= */
+
+/* Smooth transition */
+.hero_img img,
+.feature_image img,
+.testimonial_image img {
+  transition: all 0.6s ease;
 }
 
-.grad_bg{
-    position: absolute;
-    top: 0;
+/* Hover zoom + rotate */
+.hero_img img:hover,
+.feature_image img:hover {
+  transform: scale(1.08) rotate(2deg);
+}
+
+/* Floating animation (continuous) */
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+/* Apply floating effect */
+.hero_img img {
+  animation: float 4s ease-in-out infinite;
+}
+
+/* Card image pop */
+.testimonial_image img:hover {
+  transform: scale(1.1);
+}
+
+/* ========================= */
+/* BUTTON ANIMATIONS */
+/* ========================= */
+
+button {
+  padding: 22px 32px;
+  border-radius: 9999px;
+  font-size: 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Hover lift + glow */
+button:hover {
+  transform: translateY(-4px) scale(1.05);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+/* Click effect */
+button:active {
+  transform: scale(0.95);
+}
+
+/* Shine effect */
+button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -75%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(255, 255, 255, 0.5),
+    transparent
+  );
+  transform: skewX(-20deg);
+}
+
+/* Animate shine */
+button:hover::before {
+  left: 130%;
+  transition: 0.7s;
+}
+
+/* ========================= */
+/* CARD HOVER ANIMATION */
+/* ========================= */
+
+.testimonial_card {
+  transition: all 0.4s ease;
+  cursor: pointer;
+}
+
+/* Lift + glow */
+.testimonial_card:hover {
+  transform: translateY(-15px) scale(1.03);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+.testimonial_card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 20px;
+  padding: 2px;
+  background: linear-gradient(120deg, #9f3ee7, #560d95, #a445e8);
+  -webkit-mask: 
+    linear-gradient(#000 0 0) content-box, 
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.testimonial_card:hover::before {
+  opacity: 1;
+}
+
+/* ========================= */
+/* TABLET (<= 1024px) */
+/* ========================= */
+@media (max-width: 1024px) {
+
+  .container {
+    padding: 0 20px;
+  }
+
+  h1 {
+    font-size: 60px;
+  }
+
+  h2 {
+    font-size: 40px;
+  }
+
+  nav ul {
+    gap: 30px;
+  }
+
+  .hero_section {
+    flex-direction: column;
+    text-align: center;
+    gap: 40px;
+  }
+
+  .hero_button {
+    justify-content: center;
+  }
+
+  .feature_section {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .testimonials {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .testimonial_card {
+    width: 45%;
+  }
+
+  footer {
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  .links_container {
+    justify-content: space-between;
+  }
+
+  .input_container {
     width: 100%;
-    z-index: 2;
+  }
+}
+
+
+/* ========================= */
+/* MOBILE (<= 768px) */
+/* ========================= */
+@media (max-width: 768px) {
+
+  h1 {
+    font-size: 40px;
+  }
+
+  h2 {
+    font-size: 28px;
+  }
+
+  p {
+    font-size: 16px;
+  }
+
+  nav {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+
+  nav ul {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .hero_button {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .hero_button button {
+    width: 100%;
+    max-width: 250px;
+  }
+
+  .brand_logos {
+    flex-wrap: wrap;
+    gap: 20px;
+    height: auto;
+    padding: 20px;
+  }
+
+  .testimonial_card {
+    width: 100%;
+  }
+
+  .ready_section {
+    height: auto;
+    padding: 40px 20px;
+  }
+
+  footer {
+    text-align: center;
+  }
+
+  .links_container {
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+  }
+
+  .news_letter {
+    width: 100%;
+  }
+
+  .input_container {
+    width: 100%;
+  }
 }
